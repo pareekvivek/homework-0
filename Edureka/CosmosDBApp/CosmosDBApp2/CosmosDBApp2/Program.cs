@@ -19,15 +19,11 @@ namespace CosmosDBApp2
 
             //Reference to the ConnectionString in the App.Config file 
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                 CloudConfigurationManager.GetSetting("StorageConnection"));
-
+            CloudConfigurationManager.GetSetting("StorageConnection"));
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
             CloudTable table = tableClient.GetTableReference("customers");
-
             table.CreateIfNotExists();
-
-
+            
             ///Region - Single Transaction
             {
                 //CreateCustomer(table, new Customer("Customer1", "customer1@mail.com", "registered"));
