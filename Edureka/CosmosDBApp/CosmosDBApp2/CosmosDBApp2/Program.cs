@@ -18,8 +18,7 @@ namespace CosmosDBApp2
 
 
             //Reference to the ConnectionString in the App.Config file 
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            CloudConfigurationManager.GetSetting("StorageConnection"));
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnection"));
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
             CloudTable table = tableClient.GetTableReference("customers");
             table.CreateIfNotExists();
@@ -34,7 +33,7 @@ namespace CosmosDBApp2
             {
                 TableBatchOperation batchOperation = new TableBatchOperation();
 
-                Customer customer2 = new Customer("Customer21",  Guid.NewGuid().ToString()+ "customer2@mail.com", "registered");
+                Customer customer2 = new Customer("Customer21", Guid.NewGuid().ToString()+ "customer2@mail.com", "registered");
                 Customer customer3 = new Customer("Customer22", Guid.NewGuid().ToString() + "customer3@mail.com", "registered","male");
                 Customer customer4 = new Customer("Customer23", Guid.NewGuid().ToString() + "customer4@mail.com", "registered");
                 Customer customer5 = new Customer("Customer24", Guid.NewGuid().ToString() + "customer5@mail.com", "registered","female");
