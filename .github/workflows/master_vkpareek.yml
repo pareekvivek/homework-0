@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'vkpareek'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5756452aac5847ae94ea192638a94e37 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_64a6f86022e1403fa9c03ec23d2b4ad3 }}
         package: ${{env.DOTNET_ROOT}}/myapp 
