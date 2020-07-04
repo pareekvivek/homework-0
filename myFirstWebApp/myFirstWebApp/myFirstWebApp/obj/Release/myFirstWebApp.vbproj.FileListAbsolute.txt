@@ -80,3 +80,4 @@ D:\Workspace\git\homework\myFirstWebApp\myFirstWebApp\myFirstWebApp\obj\Release\
 D:\Workspace\git\homework\myFirstWebApp\myFirstWebApp\myFirstWebApp\obj\Release\myFirstWebApp.dll
 D:\Workspace\git\homework\myFirstWebApp\myFirstWebApp\myFirstWebApp\obj\Release\myFirstWebApp.xml
 D:\Workspace\git\homework\myFirstWebApp\myFirstWebApp\myFirstWebApp\obj\Release\myFirstWebApp.pdb
+D:\Workspace\git\homework\myFirstWebApp\myFirstWebApp\myFirstWebApp\obj\Release\myFirstWebApp.vbprojAssemblyReference.cache
