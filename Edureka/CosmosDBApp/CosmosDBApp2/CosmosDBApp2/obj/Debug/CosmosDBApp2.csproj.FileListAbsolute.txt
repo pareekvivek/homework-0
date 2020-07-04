@@ -1,10 +1,6 @@
 D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\CosmosDBApp2.exe.config
 D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\CosmosDBApp2.exe
 D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\CosmosDBApp2.pdb
-D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
-D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\Microsoft.WindowsAzure.Configuration.dll
-D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\Microsoft.WindowsAzure.Storage.dll
-D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\Newtonsoft.Json.dll
 D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
 D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\Microsoft.WindowsAzure.Configuration.xml
 D:\Workspace\git\homework\Edureka\CosmosDBApp\CosmosDBApp2\CosmosDBApp2\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
