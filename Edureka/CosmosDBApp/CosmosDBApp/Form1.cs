@@ -8,20 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
 using System.Collections.Specialized;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Azure;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Table;
-
 
 namespace CosmosDBApp
 {
@@ -32,17 +23,16 @@ namespace CosmosDBApp
             InitializeComponent();
         }
 
+        #region Private Var Decleratopm
+
+        CloudTableClient tableClient;
+
+        #endregion
+
         private void ConnectToCosmosDB_Click(object sender, EventArgs e)
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigSetting.Text);
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-            IEnumerable<CloudTable> cosomosDBTables = tableClient.ListTables();
-
-            foreach (CloudTable t in cosomosDBTables)
-            {
-                treeView1.Nodes.Add(t.Name);
-            }
-
+            tableClient = PopulateTableClient(txtConfigSetting.Text);
+            PopulateTreeView(tableClient);
         }
 
         private void GetFromConfigrations_Click(object sender, EventArgs e)
@@ -51,9 +41,64 @@ namespace CosmosDBApp
             //string StorageConnection = appSettings.GetValue("StorageConnection", string. );
             string StorageConnection = ConfigurationManager.AppSettings.Get("StorageConnection");
             if (!string.IsNullOrEmpty(StorageConnection))
-                ConfigSetting.Text = StorageConnection;
+                txtConfigSetting.Text = StorageConnection;
             else
                 MessageBox.Show("StorageConnection config not found in config"); 
+        }
+
+        private void btnAddEntity_Click(object sender, EventArgs e)
+        {
+            if (tableClient == null)
+            {
+                tableClient = PopulateTableClient(txtConfigSetting.Text);
+            }
+            try
+            {
+                CloudTable table = tableClient.GetTableReference(txtNewEntity.Text);
+                if (table.CreateIfNotExists())
+                {
+                    PopulateTreeView(tableClient);
+                    txtNewEntity.Text = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private CloudTableClient PopulateTableClient(string conString)
+        {
+            CloudTableClient c = null;
+            try
+            {
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(conString);
+                c = storageAccount.CreateCloudTableClient();
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetType() == typeof(System.FormatException)) 
+                {
+                    MessageBox.Show("Invalid Conneciton String: Detail Exception" + ex.ToString());
+                }
+                else 
+                {
+                    throw ex;
+                }
+            }
+            return c;
+
+        }
+
+        private void PopulateTreeView(CloudTableClient tableClient)
+        {
+            IEnumerable<CloudTable> cosomosDBTables = tableClient.ListTables();
+            tvEntities.Nodes.Clear();
+            foreach (CloudTable t in cosomosDBTables)
+            {
+                tvEntities.Nodes.Add(t.Name);
+            }
+            tvEntities.Sort();
         }
     }
 }
